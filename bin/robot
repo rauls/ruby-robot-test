@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+##########################################
+# robot - main app
+# Author:: Raul Sobon
+#
+# Our little robot friend
+# Accept input from FILE or from STDIN
+
+# require_relative "../lib/robot"
+require File.expand_path('../../lib/robot', __FILE__)
+
+begin
+  Robot::Application.new(ARGV).run
+rescue Errno::ENOENT => err
+  abort "robot: #{err.message}"
+end
